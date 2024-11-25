@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Use of AI in Financial Planning</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --background-color: #f8fafc;
+            --nav-bg: #2563eb;
+            --text-color: #1f2937;
+            --nav-text: #ffffff;
+            --border-color: #e5e7eb;
+            --section-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        nav a.active {
+            background-color: var(--nav-text);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .project-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--section-bg);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+        }
+
+        .project-image {
+            max-width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin: 1rem auto;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .project-image:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 1rem auto;
+            color: var(--text-color);
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.8;
+            padding: 0 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 2rem auto;
+            font-weight: 500;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        /* S&P 500 Section Styles */
+        .sp500-container {
+            background-color: var(--section-bg);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeframe-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .timeframe-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .timeframe-button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .project-image {
+                height: 300px;
+            }
+
+            .content-section,
+            .project-section {
+                padding: 1.5rem;
+            }
+
+            p {
+                padding: 0 0.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Add Chart.js for the S&P 500 graph -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="resume.html">Resume</a>
+            <a href="project.html">Project</a>
+            <a href="game.html">Game</a>
+            <a href="discovery.html" class="active">Discovery</a>
+            <a href="contactme.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content-section">
+            <h1>The Use of AI in Financial Planning</h1>
+            <p class="intro-text">Exploring how artificial intelligence is transforming the financial services industry through improved analysis, automation, and personalized client services.</p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-title">Morgan Stanley</h2>
+            <p>Morgan Stanley is a global financial services firm that provides investment banking, wealth management, and asset management services to individuals, institutions, and governments.</p>
+            <p>AI is having a transformative impact on Morgan Stanley by enhancing their ability to analyze vast amounts of financial data, automate processes, and provide personalized advice to clients. With AI-driven tools like their digital assistant "AskResearch" and advanced predictive analytics, the firm is improving decision-making, optimizing investment strategies, and increasing operational efficiency. This allows for better outcomes for clients while streamlining internal operations.</p>
+        </div>
+
+        <div class="project-section">
+            <h2 class="project-title">Edward Jones</h2>
+            <p>Edward Jones is a financial services firm that provides personalized investment advice and financial planning to individual investors through a network of branch offices and financial advisors.</p>
+            <p>AI is making a significant impact at Edward Jones by helping their financial advisors deliver more tailored and efficient advice through advanced data analytics and automated tools. By leveraging AI, the firm can better understand client preferences, predict market trends, and optimize investment strategies, which in turn enhances the client experience and drives more informed decision-making. Additionally, AI-powered chatbots and virtual assistants are improving operational efficiency by automating routine tasks and customer interactions.</p>
+        </div>
+       
+       
+       
+        <div class="container">
+            <div class="content-section">
+                <h1>Career Fair Companies</h1>
+            </div>
+    
+            <div class="project-section">
+                <h2 class="project-title">Pitzl & Pitzl</h2>
+                <p>I believe that I would be a great fit at Pitzl & Pitzl due to my experience in customer service and my strong understanding of portfolio management. My skills in building client relationships and effectively managing portfolios align closely with the requirements outlined in the job description, and I am confident I can contribute to the success of your team.</p>
+            </div>
+    
+            <div class="project-section">
+                <h2 class="project-title">FDIC</h2>
+                <p>I believe that I would be a great fit at Pitzl & Pitzl due to my experience in customer service and my strong understanding of portfolio management. My skills in building client relationships and effectively managing portfolios align closely with the requirements outlined in the job description, and I am confident I can contribute to the success of your team.</p>
+            </div>

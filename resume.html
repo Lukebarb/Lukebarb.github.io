@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Luke Barbknecht</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --background-color: #f8fafc;
+            --nav-bg: #2563eb;
+            --text-color: #1f2937;
+            --nav-text: #ffffff;
+            --border-color: #e5e7eb;
+            --section-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        nav a.active {
+            background-color: var(--nav-text);
+            color: var(--primary-color);
+        }
+
+        .pdf-link {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .pdf-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .pdf-link a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: var(--section-bg);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-hover);
+        }
+
+        .section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: var(--text-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .entry {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry:hover {
+            border-left-color: var(--primary-color);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .entry-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .entry-content {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill {
+            background-color: var(--primary-color);
+            color: var(--nav-text);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .skill:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .activities-list {
+            list-style-type: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .activities-list li {
+            padding: 0.75rem;
+            background-color: #f8fafc;
+            border-radius: 0.375rem;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+            }
+
+            .entry-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="resume.html" class="active">Resume</a>
+            <a href="project.html">Project</a>
+            <a href="game.html">Game</a>
+            <a href="discovery.html">Discovery</a>
+            <a href="contactme.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="pdf-link">
+        <a href="assets/Northland Resume  copy.pdf" target="_blank">
+            Download PDF Resume
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Luke Barbknecht</h1>
+            <div class="contact-info">
+                <a href="mailto:luke.barbknecht@gmail.com">luke.barbknecht@gmail.com</a>
+                <a href="tel:6124326056">612.432.6056</a>
+                <a href="https://linkedin.com/in/lukebarbknecht" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">University of Minnesota Duluth</span>
+                    <span class="entry-date">Graduate: May 2027</span>
+                </div>
+                <div class="entry-subtitle">GPA: 3.8/4.0</div>
+                <div class="entry-content">
+                    <strong>Specialized Courses:</strong> Financial Accounting, Macroeconomics, Microeconomics, Business Law,
+                    Managerial Accounting, Information Technology in Business
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Edina Country Club</span>
+                    <span class="entry-date">May 2024–Present</span>
+                </div>
+                <div class="entry-content">
+                    Promote and maintain high levels of customer service towards members & guests during their
+                    visit at the course and maintaining the cleanliness of equipment and services
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Scheels Associate</span>
+                    <span class="entry-date">September 2021–August 2023</span>
+                </div>
+                <div class="entry-content">
+                    Advised customers to make purchases, packaged online orders, and presented & promoted the
+                    culture of Scheels
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Eden Prairie Chamber of Commerce</span>
+                    <span class="entry-date">September 2022–May 2023</span>
+                </div>
+                <div class="entry-content">
+                    Connecting between business and community through various networking programs, roundtable
+                    discussions, human resources trainings, and industry-related workshops
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Blue Team Alpha Intern</span>
+                    <span class="entry-date">January 2023–March 2023</span>
+                </div>
+                <div class="entry-content">
+                    Researched, discussed, and presented different strategies to help improve the marketing approach
+                    for the new wave of AI technology
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Volunteering</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Cathedral of The Pines</span>
+                    <span class="entry-date">June 2021–Present</span>
+                </div>
+                <div class="entry-content">
+                    Council youth in the church and help grow their faith by setting up for meals, mowing lawns,
+                    washing cars, watering flowers, and leading devotions
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">National Honors Society</span>
+                    <span class="entry-date">September 2022–May 2023</span>
+                </div>
+                <div class="entry-content">
+                    Contributing to making an impact in the community through the four pillars of scholarship,
+                    service, leadership, and character
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Circle of Friends</span>
+                    <span class="entry-date">September 2019–May 2020</span>
+                </div>
+                <div class="entry-content">
+                    Social based program that partners special needs teenagers from around the metro with high
+                    school students from Mount Olivet. Partook in various activities such as bowling, shopping,
+                    games, and dances
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Activities</h2>
+            <div class="entry">
+                <ul class="activities-list">
+                    <li>Club Golf | University of Minnesota Duluth (September 2023–Present)</li>
+                    <li>Finance & Investments Club | University of Minnesota Duluth (September 2023–Present)</li>
+                    <li>Personal Finance Club | University of Minnesota Duluth (September 2023–Present)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Strength Finder</h2>
+            <div class="skills">
+                <span class="skill">Adaptability</span>
+                <span class="skill">Activator</span>
+                <span class="skill">Maximizer</span>
+                <span class="skill">Strategic</span>
+                <span class="skill">Analytical</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

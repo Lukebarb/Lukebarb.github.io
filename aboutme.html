@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --background-color: #f8fafc;
+            --nav-bg: #2563eb;
+            --text-color: #1f2937;
+            --nav-text: #ffffff;
+            --border-color: #e5e7eb;
+            --section-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: var(--nav-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        nav a.active {
+            background-color: var(--nav-text);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-section {
+            background-color: var(--section-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hobby-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--section-bg);
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hobby-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+        }
+
+        .profile-picture {
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .hobby-image {
+            max-width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin: 1rem auto;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .profile-picture:hover,
+        .hobby-image:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 1rem auto;
+            color: var(--text-color);
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.8;
+            padding: 0 1rem;
+        }
+
+        .welcome-text {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 2rem auto;
+            font-weight: 500;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hobby-image {
+                height: 300px;
+            }
+
+            .content-section,
+            .hobby-section {
+                padding: 1.5rem;
+            }
+
+            p {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="aboutme.html" class="active">About Me</a>
+            <a href="resume.html">Resume</a>
+            <a href="project.html">Project</a>
+            <a href="game.html">Game</a>
+            <a href="discovery.html">Discovery</a>
+            <a href="contactme.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content-section">
+            <h1>About Me</h1>
+            <img src="Images/Screenshot 2024-11-23 at 8.43.36 PM.png" alt="Profile picture of Luke Barbknecht" class="profile-picture"/>
+            <p class="welcome-text">Hello! I'm Luke Barbknecht. Welcome to my about me page. I am currently a Sophomore at the University of Minnesota Duluth studying Finance.</p>
+        </div>
+
+        <div class="hobby-section">
+            <h2 class="hobby-title">Golf</h2>
+            <img src="Images/Screenshot 2024-11-23 at 8.52.36 PM.png" alt="Beautiful golf course showing green fairways and bunkers" class="hobby-image">
+            <p>Golf is not just a sport for me; it's a relaxing challenge. I love spending my weekends on the green, enjoying the calm of the course while aiming to perfect my swing. The combination of technique, focus, and patience makes golf the perfect escape for me.</p>
+        </div>
+
+        <div class="hobby-section">
+            <h2 class="hobby-title">Nature Hikes</h2>
+            <img src="Images/Screenshot 2024-11-23 at 8.52.09 PM.png" alt="Scenic hiking trail surrounded by lush forest" class="hobby-image">
+            <p>Hiking through nature is one of my favorite ways to disconnect from the world and recharge. Whether it's a scenic mountain trail or a peaceful forest path, being outdoors allows me to reflect and enjoy the beauty of the natural world around me.</p>
+        </div>
+
+        <div class="hobby-section">
+            <h2 class="hobby-title">Volunteering</h2>
+            <p>Outside of the classroom, I volunteer at my church, where I help with various programs. One of my favorite activities is working at a summer camp called Cathedral of The Pines. In addition to my church work, I also volunteer at non-profits like Feed My Starving Children, where I assist in packaging food for those in need.</p>
+        </div>
+    </div>
+</body>
+</html>
